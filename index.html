@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Clock using javascript</title>
+</head>
+<body >
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr">
+
+            </div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn">
+                
+            </div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc">
+                
+            </div>
+        </div>
+    </div>
+<div class="toggleclass" onclick="toggleclass()">
+
+</div>
+    <script type="text/javascript">
+        function toggleclass(){
+            const body = document.querySelector('body');
+            body.classList.toggle('light');
+
+        }
+        const deg = 6 ;
+        const hr = document.querySelector("#hr");
+        const mn = document.querySelector("#mn");
+        const sc = document.querySelector("#sc");
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+         hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+        mn.style.transform = `rotateZ(${mm}deg)`;
+        sc.style.transform = `rotateZ(${ss}deg)`;
+       
+        })
+    </script>
+      
+      <div class="footer">
+        <h6 class="my-2">Made with <i class="fas fa-heart"></i> by <a
+            href="https://sachinlohar.ml/" target="_blank"><b>Sachin Lohar</b></a></h6>
+      </div>
+
+</body>
+</html>
