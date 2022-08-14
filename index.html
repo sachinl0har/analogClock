@@ -15,7 +15,7 @@
     <meta name="theme-color" content="#ff0000">
     <meta property="og:locale" content="en-IN" />
     <link rel="stylesheet" href="style.css">
-    <title>Clock using javascript</title>
+    <title>Analog Clock</title>
 </head>
 <body >
     <div class="clock">
@@ -35,15 +35,26 @@
             </div>
         </div>
     </div>
-<div class="toggleclass" onclick="toggleclass()">
+
+    <div class="toggle">
+        <input type="checkbox" id="toggle" />
+        <label for="toggle"></label>
+      </div>
 
 </div>
     <script type="text/javascript">
-        function toggleclass(){
-            const body = document.querySelector('body');
-            body.classList.toggle('light');
+        const toggle = document.getElementById('toggle');
+const body = document.body;
 
-        }
+toggle.addEventListener('input', (e) => {
+  const isChecked = e.target.checked;
+  
+  if(isChecked) {
+    body.classList.add('light');
+  } else {
+    body.classList.remove('light');
+  }
+});
         const deg = 6 ;
         const hr = document.querySelector("#hr");
         const mn = document.querySelector("#mn");

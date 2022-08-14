@@ -27,10 +27,10 @@ background: #d1dae3;
     background-size: cover;
     border: 4px solid #9e0000;
     border-radius: 50%;
-    box-shadow: 0 -15px 15px rgba(255,255,255, 0.05),
-               inset   0 -15px 15px rgba(255,255,255, 0.05),
-               0 -15px 15px rgba(0,0,0, 0.3),
-               inset 0 -15px 15px rgba(0,0,0, 0.3);
+    box-shadow: 0 -15px 15px rgba(255, 0, 0, 0.05),
+               inset   0 -15px 15px rgba(255, 0, 0, 0.05),
+               0 -15px 15px rgba(255, 0, 0, 0.3),
+               inset 0 -15px 15px rgba(255, 0, 0, 0.3);
 }
 body.light .clock{
     background:  #d1dae3 url(clock.png);
@@ -123,48 +123,54 @@ top: 30px;
 right: 150px;
 width: 20px;
 height: 20px;
-font-size: 18px;
-border-radius: 50%;
-background: #d1dae3;
-color: #d1dae3;
 cursor: pointer;
 }
-.toggleclass{
-    position: absolute;
-    top: 30px;
-    right: 150px;
-    width: 20px;
-    height: 20px;
-    font: 18px;
-border-radius: 50%;
-color: white;
-background: white;
-font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-cursor: pointer;
-display: flex;
-align-items: center;
-}
-.toggleclass:before{
-    position: absolute;
-    content: 'Light';
-    white-space: nowrap;
-left: 25px;
-}
-body.light .toggleclass{
-    background: #000000;
-    color: #000000;
-}
-body.light .toggleclass:before{
-  content: 'Dark';
+.toggle input[type=checkbox] {
+    display: none;
+  }
   
-}
+  .toggle label {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(55, 55, 55);
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: all ease-in-out 0.3s;
+    width: 50px;
+    height: 30px;
+  }
+  
+  .toggle label::after {
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    content: ' ';
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    transition: all ease-in-out 0.3s;
+    width: 22px;
+    height: 22px;
+  }
+  
+  .toggle input[type=checkbox]:checked ~ label {
+    background-color: #fc0000;
+    border-color: #c90000;
+  }
+  
+  .toggle input[type=checkbox]:checked ~ label::after {
+    background-color: #000000;
+    transform: translateX(20px);
+  }
 
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(255, 116, 116);
+    background-color: rgb(255, 23, 23);
     color: white;
     text-align: center;
   }
